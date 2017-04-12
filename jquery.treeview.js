@@ -40,7 +40,7 @@
 		var onClick = opt.onClick;
 		// 是否配置了删除事件
 		var onDel = opt.onDel;
-
+		$("head").append("<style type='text/css'>ul.tree, .tree ul, .tree li{list-style:none;border:none;}.tree {color: #666666;margin: -2px 0 -2px 10px;padding: 0;}.tree li,.tree li a,.tree li span {padding: 1px 2px 1px 5px;border-radius: 4px;}.tree li a {color:#666666;text-decoration: none;line-height: 20pt;border-radius: 4px;}.tree span {cursor: pointer;}span.tree-ctrl{background: url('images/arrow_expand.png') no-repeat center;color: '#333333';}span.tree-ctrl.tree-contract{background: url('images/arrow_contract.png') no-repeat center;color: '#333333';}span.tree-del:before{content:'x';color: #f0733d;}.tree .active>span, .tree .active>a {color: #3db6fd;}</style>");
 		// 树的内容
 		var content = (function buildTree(data){
 			

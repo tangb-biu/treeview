@@ -3,98 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>jQuery轻量级树状菜单插件代码</title>
-<!-- <link href="jquery.treemenu.css" rel="stylesheet" type="text/css"> -->
-<style>
-ul.tree, .tree ul, .tree li{
-	list-style:none;border:none;
-}
-body{background-color:#fff;}
-.tree {  
-    color: #666666;
-    margin: -2px 0 -2px 10px;
-    padding: 0;
-}
-.tree li,
-.tree li a,
-.tree li span {
-    padding: 1px 2px 1px 5px;
-    border-radius: 4px;
-}
-
-.tree li a {
-    color:#666666;
-    text-decoration: none;
-    line-height: 20pt;
-    border-radius: 4px;
-}
-.tree span {
-   cursor: pointer;
-}
-span.tree-ctrl{
-    background: url('images/arrow_expand.png') no-repeat center;
-    color: '#333333';
-}
-span.tree-ctrl.tree-contract{
-   background: url('images/arrow_contract.png') no-repeat center;
-   color: '#333333';
-}
-span.tree-del:before{
-    content:'x';
-    color: #f0733d;
-}
-.tree .active>span, .tree .active>a {
-    color: #3db6fd;
-}
-</style>
 </head>
 
 <body>
-<!--
-<ul class="tree">
-  <li><a href="">Home</a></li>
-  <li><span>Category</span>
-    <ul>
-      <li><a href="#">jQuery</a>
-        <ul>
-          <li><a href="#">jQuery</a></li>
-          <li><a href="#">jQuery UI</a></li>
-          <li><a href="#">jQuery Mobile</a></li>
-        </ul>
-      </li>
-      <li><a href="#">JavaScript</a>
-        <ul>
-          <li><a class="active" href="#">AngularJS</a></li>
-          <li><a href="#">React</a></li>
-          <li><a href="#">Backbone</a></li>
-        </ul>
-      </li>
-      <li><a href="#suits">Golang</a></li>
-    </ul>
-  </li>
-  <li><a href="#about">About</a>
-    <ul>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Jobs</a>
-        <ul>
-          <li><a href="#jobs1">Job 1</a></li>
-          <li><a href="#jobs2">Job 2</a></li>
-          <li><a href="#jobs3">Job 3</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
--->
 <script src="jquery-1.11.2.min.js"></script> 
 <script src="jquery.treeview.js"></script> 
 <script>
-/*
-$(function(){
-        $(".tree").treemenu({delay:300}).openActive();
-    });
-*/
-
 var opt = {
   data : {
     name:'1',
