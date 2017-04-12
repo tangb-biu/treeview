@@ -34,15 +34,21 @@
 	}
 
 	var treeView = function ( opt ) {
+		// 树根
 		var root = $("<ul class='tree'></ul>");
+		// 是否配置了点击事件
 		var onClick = opt.onClick;
+		// 是否配置了删除事件
 		var onDel = opt.onDel;
+
+		// 树的内容
 		var content = (function buildTree(data){
+			
 			var child = $('<li></li>');
 			
 			child.attr("data-id", uuid());
 			var odiv = $("<div></div>");
-			var ack = $("<a href='javascript:;'>" + data.name + "</a>");
+			var ack = $("<a href='javascript:;'>" + data.name + "</a>"); // name
 			ack.on('click', handlerClick);
 
 			function handlerClick(e) {
