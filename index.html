@@ -3,9 +3,25 @@
 <head>
 <meta charset="utf-8">
 <title>jQuery轻量级树状菜单插件代码</title>
+<style type="text/css">
+  .*{
+    margin: 0px;
+    padding: 0px;
+  }
+  html,body{
+    height: 100%;
+    width: 100%;
+  }
+  #main{
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+  }
+</style>
 </head>
 
 <body>
+  <div id="main"></div>
 <script src="jquery-1.11.2.min.js"></script> 
 <script src="jquery.treeview.js"></script> 
 <script>
@@ -25,34 +41,42 @@ var opt = {
         ]
       },
       {
-        name:'12',
-        children:[
-          {
-            name:'121',
-          },
-          {
-            name: '122'
-          }
-        ]
-      },
-      {
         name:'13',
       }
     ]
   },
+  
+  /**
+   * click envent handler
+   * @param: {
+   *    jqdom: the click taget ,
+   *    name: the text,
+   *    id: dom id,
+   *    status: Expand or close
+   * }
+   */
+  
   onClick: function(jqdom, name, id, status) {
     console.log(jqdom);
     console.log(name);
     console.log(id);
     console.log(status);
   },
+  /**
+   * click envent handler
+   * @param: {
+   *    jqdom: the click taget ,
+   *    name: the text,
+   *    children: the data under the target
+   * }
+   */
   onDel: function(jqdom, name, children){
     console.log(jqdom);
     console.log(name);
     console.log(children);
   }
 }
-$("body").treeView(opt);
+$("#main").treeView(opt);
 </script>
 
 
