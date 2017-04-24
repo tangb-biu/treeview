@@ -45,6 +45,11 @@ var opt = {
     console.log(name);
     console.log(id);
     console.log(status);
+  },
+  onDel: function(jqdom, name, children){
+    console.log(jqdom);
+    console.log(name);
+    console.log(children);
   }
 }
 $("body").treeView(opt);

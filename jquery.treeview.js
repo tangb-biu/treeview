@@ -49,42 +49,30 @@
 			child.attr("data-id", uuid());
 			var odiv = $("<div></div>");
 			var ack = $("<a href='javascript:;'>" + data.name + "</a>"); // name
-			ack.on('click', handlerClick);
-
-			function handlerClick(e) {
-				$(".tree div").removeClass("active");
-				odiv.addClass("active");
-				odiv.children(".tree-ctrl").toggleClass("tree-contract");
-				var isContract = child.children().find("span").hasClass("tree-contract");
-				child.children('ul').toggle();
+			ack.on('click', function(){
 				if(onClick) { // 处理点击事件
-					onClick.call(child, child, data.name, child.attr("data-id"), isContract);
+				    $(".tree div").removeClass("active");
+					odiv.addClass("active");
+					var isContract = child.children().find("span").hasClass("tree-contract");
+					if(onClick) {
+						onClick.call(child, child, data.name, child.attr("data-id"), isContract);
+					}
 				}
-			}
+			});
+
 			var children = data.children;
 			if(children && children.length>0) {
 				// 点击展开图标
 				var spanIco = $("<span class='tree-ctrl tree-contract'></span>");
-				spanIco.on('click', handlerClick);
+				spanIco.on('click', function(){
+					odiv.children(".tree-ctrl").toggleClass("tree-contract");
+					child.children('ul').toggle();
+				});
 				odiv.append(spanIco);
 
 				odiv.append(ack);
 
 				// 删除
-				var dele = $("<span class='tree-del' title='删除'></span>");
-				dele.hide();
-				odiv.append(dele);
-				odiv.on('mouseover', function() {
-					dele.show();
-				})
-				odiv.on('mouseout', function(){
-					dele.hide();
-				})
-				dele.on('click', function () {
-					if(onDel) {
-						onDel.call(this, onDel, data.name, children);
-					}
-				});	
 				var ul = $("<ul class='tree'></ul>");
 				ul.hide();
 				for(var i=0; i<children.length; i++) {
@@ -98,7 +86,20 @@
 				odiv.append(spanIco);
 				child.append(odiv);
 			}
-
+			var dele = $("<span class='tree-del' title='删除'></span>");
+			dele.hide();
+			odiv.append(dele);
+			odiv.on('mouseover', function() {
+				dele.show();
+			})
+			odiv.on('mouseout', function(){
+				dele.hide();
+			})
+			dele.on('click', function () {
+				if(onDel) {
+					onDel.call(this, child, data.name, children);
+				}
+			});	
 			return child;
 		}(opt.data));
 
